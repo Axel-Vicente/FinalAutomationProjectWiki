@@ -17,6 +17,7 @@
         <aspectj.version>1.9.7</aspectj.version>
         <cucumber.version>7.2.3</cucumber.version>
         <allure.jira.version>2.13.1</allure.jira.version>
+        <commons-io.version>2.6</commons-io.version>
     </properties>
 
     <dependencies>
@@ -70,6 +71,21 @@
             <version>${allure.testng.version}</version>
         </dependency>
         <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>4.1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.relevantcodes</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>2.41.2</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>${commons-io.version}</version>
+        </dependency>
+        <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-jira-commons</artifactId>
             <version>${allure.jira.version}</version>
@@ -107,7 +123,6 @@
                                 <name>allure.results.directory</name>
                                 <value>target/allure-results</value>
                             </propertiy>
-                            <reportDirectory>target/allure-report</reportDirectory>
                         </systemProperties>
                         <argLine>
                             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
