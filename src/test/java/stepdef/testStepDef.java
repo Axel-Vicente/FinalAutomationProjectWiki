@@ -8,7 +8,7 @@ import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import context.TextContext;
+import context.TestContext;
 import pageobjects.AffinityPage;
 import utils.ParentTestCase;
 
@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class testStepDef extends ParentTestCase {
     private AffinityPage affinityPage;
 
-    public testStepDef(TextContext context) {
+    public testStepDef(TestContext context) {
         super(context);
         affinityPage = new AffinityPage(this.driver);
     }

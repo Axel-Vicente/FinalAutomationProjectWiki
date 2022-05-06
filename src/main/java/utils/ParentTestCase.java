@@ -1,6 +1,6 @@
 package utils;
 
-import context.TextContext;
+import context.TestContext;
 import org.openqa.selenium.WebDriver;
 import pageobjects.AffinityPage;
 
@@ -10,10 +10,10 @@ public class ParentTestCase {
     protected Logger Log;
     protected WebDriver driver;
     protected String user, password;
-    protected TextContext context;
+    protected TestContext context;
     protected AffinityPage affinityPage;
 
-    public ParentTestCase(TextContext context) {
+    public ParentTestCase(TestContext context) {
         this.context = context;
         driver = context.getDriver();
         user = context.getUser();
