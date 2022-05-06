@@ -7,12 +7,17 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverWeb {
     private static WebDriver driver;
+    private PropertiesFile propertiesFile;
 
     public WebDriver inicialization(){
+        String url = propertiesFile.readFileProperties("url_web");
+
         System.setProperty("webdriver.chrome.driver","driver/chromedriver.exe");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://monster-wiki.vercel.app/");
+        driver.get(url);
 
         return driver;
     }
