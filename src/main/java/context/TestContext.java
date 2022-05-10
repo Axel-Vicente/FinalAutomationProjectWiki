@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.openqa.selenium.WebDriver;
 import pageobjects.AffinityPage;
 import utils.DriverWeb;
+import utils.ExcelUtils;
 import utils.PropertiesFile;
 
 import java.util.logging.Logger;
@@ -16,14 +17,15 @@ public class TestContext {
     private Logger Log;
     private WebDriver driver;
     private String user, password;
-    //    private ExcelUtils dataSheet;
+    private ExcelUtils dataSheet;
     private AffinityPage affinityPage;
 
-    public TestContext(){
+    public TestContext(TestContext context){
         DriverWeb driverWeb = new DriverWeb();
         driver = driverWeb.inicialization();
         user = PropertiesFile.readFileProperties("user");
         password = PropertiesFile.readFileProperties("password");
-        affinityPage = new AffinityPage(this.driver);
+        affinityPage = context.getAffinityPage();
+        dataSheet = context.getDataSheet();
     }
 }

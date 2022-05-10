@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 public class ParentTestCase {
     protected Logger Log;
     protected WebDriver driver;
+    protected ExcelUtils dataSheet;
     protected String user, password;
     protected TestContext context;
     protected AffinityPage affinityPage;
