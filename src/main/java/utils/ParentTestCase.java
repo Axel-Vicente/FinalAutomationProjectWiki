@@ -21,5 +21,6 @@ public class ParentTestCase {
         password = context.getPassword();
         Log = context.getLog();
         affinityPage = context.getAffinityPage();
+        dataSheet = context.getDataSheet();
     }
 }

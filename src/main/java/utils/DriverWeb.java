@@ -9,7 +9,8 @@ public class DriverWeb {
     private static WebDriver driver;
     private PropertiesFile propertiesFile;
 
-    public WebDriver inicialization(){
+    public WebDriver inicialization(PropertiesFile propertiesFile) {
+        this.propertiesFile = propertiesFile;
         String url = propertiesFile.readFileProperties("url_web");
 
         System.setProperty("webdriver.chrome.driver","driver/chromedriver.exe");

@@ -19,13 +19,14 @@ public class TestContext {
     private String user, password;
     private ExcelUtils dataSheet;
     private AffinityPage affinityPage;
+    private PropertiesFile propertiesFile;
 
-    public TestContext(TestContext context){
+    public TestContext(){
+        propertiesFile = new PropertiesFile();
         DriverWeb driverWeb = new DriverWeb();
-        driver = driverWeb.inicialization();
-        user = PropertiesFile.readFileProperties("user");
-        password = PropertiesFile.readFileProperties("password");
-        affinityPage = context.getAffinityPage();
-        dataSheet = context.getDataSheet();
+        driver = driverWeb.inicialization(propertiesFile);
+        user = propertiesFile.readFileProperties("user");
+        password = propertiesFile.readFileProperties("password");
+        Log = Logger.getLogger(TestContext.class.getName());
     }
 }
