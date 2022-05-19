@@ -1,12 +1,12 @@
-package context;
+package com.monster.wiki.context;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.openqa.selenium.WebDriver;
-import pageobjects.AffinityPage;
-import utils.DriverWeb;
-import utils.ExcelUtils;
-import utils.PropertiesFile;
+import com.monster.wiki.pageobjects.AffinityPage;
+import com.monster.wiki.utils.DriverWeb;
+import com.monster.wiki.utils.ExcelUtils;
+import com.monster.wiki.utils.PropertiesFile;
 
 import java.util.logging.Logger;
 

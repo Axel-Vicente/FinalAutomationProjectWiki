@@ -1,4 +1,4 @@
-package utils;
+package com.monster.wiki.utils;
 
 import org.apache.commons.codec.binary.Base64;
 import org.apache.poi.ss.usermodel.Cell;

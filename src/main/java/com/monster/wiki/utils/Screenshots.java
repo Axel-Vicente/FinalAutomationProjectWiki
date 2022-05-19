@@ -1,4 +1,4 @@
-package utils;
+package com.monster.wiki.utils;
 
 import io.cucumber.java.Scenario;
 import io.qameta.allure.Attachment;

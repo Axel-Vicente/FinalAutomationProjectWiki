@@ -1,12 +1,12 @@
-package stepdef;
+package com.monster.wiki.test.stepdef;
 
-import context.TestContext;
+import com.monster.wiki.context.TestContext;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Step;
-import pageobjects.AffinityPage;
-import utils.ParentTestCase;
+import com.monster.wiki.pageobjects.AffinityPage;
+import com.monster.wiki.utils.ParentTestCase;
 
 import static org.testng.Assert.assertFalse;
 

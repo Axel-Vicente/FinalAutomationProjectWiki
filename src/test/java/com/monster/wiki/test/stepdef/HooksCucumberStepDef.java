@@ -1,13 +1,13 @@
-package stepdef;
+package com.monster.wiki.test.stepdef;
 
-import context.TestContext;
+import com.monster.wiki.context.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-import utils.ExcelUtils;
-import utils.ParentTestCase;
-import utils.Screenshots;
+import com.monster.wiki.utils.ExcelUtils;
+import com.monster.wiki.utils.ParentTestCase;
+import com.monster.wiki.utils.Screenshots;
 
 import java.util.List;
 

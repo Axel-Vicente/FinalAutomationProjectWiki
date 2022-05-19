@@ -1,4 +1,4 @@
-package base;
+package com.monster.wiki.base;
 
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.OutputType;

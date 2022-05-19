@@ -1,4 +1,4 @@
-package utils;
+package com.monster.wiki.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

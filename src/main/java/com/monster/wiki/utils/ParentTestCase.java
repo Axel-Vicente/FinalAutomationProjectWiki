@@ -1,8 +1,8 @@
-package utils;
+package com.monster.wiki.utils;
 
-import context.TestContext;
+import com.monster.wiki.context.TestContext;
 import org.openqa.selenium.WebDriver;
-import pageobjects.AffinityPage;
+import com.monster.wiki.pageobjects.AffinityPage;
 
 import java.util.logging.Logger;
 

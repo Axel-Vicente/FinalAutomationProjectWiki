@@ -1,4 +1,4 @@
-package utils;
+package com.monster.wiki.utils;
 
 import java.io.*;
 import java.nio.charset.Charset;
