@@ -1,13 +1,11 @@
 package stepdef;
 
-import context.TestContext;
-import io.cucumber.java.en.Given;
+import com.monster.wiki.context.TestContext;
+import com.monster.wiki.utils.ParentTestCase;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.qameta.allure.Step;
-import pageobjects.AffinityPage;
-import pageobjects.SearchPage;
-import utils.ParentTestCase;
+import com.monster.wiki.pageobjects.SearchPage;
 
 import static org.testng.Assert.assertFalse;
 
@@ -31,6 +29,13 @@ public class SearchEngineStepDef extends ParentTestCase {
     public void checkMonsterFound(String name, String life, String dices) {
         assertFalse(searchPage.checkMonsterFound(name, life, dices), "Monster is not found");
         Log.info("Monster is found");
+    }
+
+    @Then("I check that the text {string} does not disappear after a search")
+    @Step("I check that the text {0} does not disappear after a search")
+    public void checkDefaultSearchText(String text) {
+        assertFalse(searchPage.checkDefaultSearchText(text), "Text is not found");
+        Log.info("Text is found");
     }
 
 }
