@@ -1,11 +1,11 @@
-package pageobjects;
+package com.monster.wiki.pageobjects;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import utils.ElementWeb;
+import com.monster.wiki.utils.ElementWeb;
 
 import java.util.logging.Logger;
 
