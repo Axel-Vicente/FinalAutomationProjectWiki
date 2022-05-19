@@ -52,7 +52,7 @@ public class ElementWeb {
                 LOG.info("Trying to inform the element...");
                 waitElement(element);
                 element.sendKeys(information);
-                LOG.info("informed the element. Text: " + information);
+                LOG.info("Informed the element. Text: " + information);
                 informField = true;
             }catch (org.openqa.selenium.ElementNotInteractableException e){
                 LOG.severe("Exception in informField: " + e);
