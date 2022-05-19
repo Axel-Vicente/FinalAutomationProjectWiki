@@ -29,14 +29,13 @@ public class AffinityPage extends ElementWeb {
 
     @Step("Check click on element of header")
     public boolean clickOnHeaderElement(String element){
-        boolean error = true;
+        boolean error = false;
         By headerText = By.xpath("//div[@id='header']/descendant::a[text()='" + element + "']");
         WebElement headerElement = driver.findElement(headerText);
 
         try{
             waitElement(headerElement);
             clickOnWebElement(headerElement);
-            error = false;
         }catch (Exception e){
             error = true;
         }

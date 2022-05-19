@@ -1,7 +1,6 @@
 @workflows
 #language: en
-Feature: test
-    Verify login
+Feature: Routing
 
   Scenario Outline: FTN001_CheckHeaderNavigation
 #    Given access the wiki and login
