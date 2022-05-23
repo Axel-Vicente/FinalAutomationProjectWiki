@@ -74,11 +74,6 @@
             <version>${poi.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.codoid.products</groupId>
-            <artifactId>fillo</artifactId>
-            <version>1.18</version>
-        </dependency>
-        <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure.testng.version}</version>
@@ -146,6 +141,10 @@
                             <propertiy>
                                 <name>allure.results.directory</name>
                                 <value>target/allure-results</value>
+                            </propertiy>
+                            <propertiy>
+                                <name>dataproviderthreadcount</name>
+                                <value>2</value>
                             </propertiy>
                         </systemProperties>
                         <argLine>
