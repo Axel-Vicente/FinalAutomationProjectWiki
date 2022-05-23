@@ -57,6 +57,7 @@ public class SearchPage extends ElementWeb {
 
     private void verifyMonster(String nameStat) {
         By stat = By.xpath("//div[@class='card card-section article-container']/descendant::div[text()='" + nameStat + "']");
+        waitElement(stat);
         WebElement nameStatResult = driver.findElement(stat);
         LOG.info("Check if monster is found: " + nameStatResult.getText());
     }

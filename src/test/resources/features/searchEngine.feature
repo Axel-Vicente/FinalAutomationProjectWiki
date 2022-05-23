@@ -6,7 +6,7 @@ Feature: Search Engine
 #    Given access the wiki and login
     Given I am on the home page
     When I click on "Busqueda" in the header
-    When I search for a "<nameMonster>"
+    And I search for a "<nameMonster>"
     Then I should see "<nameMonster>", "<life>", "<hit dices>", "<type>", "<experience>", "<hit points>" in the search results
 
     Examples:
