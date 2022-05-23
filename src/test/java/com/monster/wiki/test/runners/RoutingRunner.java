@@ -5,7 +5,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
         features = "src/test/resources/features/routing.feature"
-        ,glue= {"classpath:stepdef"},
+        ,glue= {"classpath:com.monster.wiki.test.stepdef"},
         plugin = { "pretty", "summary"},
         monochrome = true
 )

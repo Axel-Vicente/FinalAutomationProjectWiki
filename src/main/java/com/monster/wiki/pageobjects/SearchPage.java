@@ -38,24 +38,27 @@ public class SearchPage extends ElementWeb {
     }
 
     @Step("Check if monster is found")
-    public boolean checkMonsterFound(String name, String life, String dices) {
+    public boolean checkMonsterFound(String name, String life, String dices, String type, String experience, String hitPoints) {
         boolean error = false;
         try {
-            By nameStat = By.xpath("//div[@class='card card-section article-container']/descendant::div[text()='" + name + "']");
-            By lifeStat = By.xpath("//div[@class='card card-section article-container']/descendant::div[text()='" + life + "']");
-            By dicesStat = By.xpath("//div[@class='card card-section article-container']/descendant::div[text()='" + dices + "']");
-            WebElement nameStatResult = driver.findElement(nameStat);
-            LOG.info("Check if monster is found: " + nameStatResult.getText());
-            WebElement lifeStatResult = driver.findElement(lifeStat);
-            LOG.info("Check if life is found: " + lifeStatResult.getText());
-            WebElement dicesStatResult = driver.findElement(dicesStat);
-            LOG.info("Check if dices is found: " + dicesStatResult.getText());
+            verifyMonster(name);
+            verifyMonster(life);
+            verifyMonster(dices);
+            verifyMonster(type);
+            verifyMonster(experience);
+            verifyMonster(hitPoints);
         } catch (Exception e) {
             e.printStackTrace();
             error = true;
         }
 
         return error;
+    }
+
+    private void verifyMonster(String nameStat) {
+        By stat = By.xpath("//div[@class='card card-section article-container']/descendant::div[text()='" + nameStat + "']");
+        WebElement nameStatResult = driver.findElement(stat);
+        LOG.info("Check if monster is found: " + nameStatResult.getText());
     }
 
     @Step("Check that the default text doesn't disappear after a search")

@@ -1,4 +1,4 @@
-package stepdef;
+package com.monster.wiki.test.stepdef;
 
 import com.monster.wiki.context.TestContext;
 import com.monster.wiki.utils.ParentTestCase;
@@ -24,10 +24,10 @@ public class SearchEngineStepDef extends ParentTestCase {
         Log.info("It was possible to search monster");
     }
 
-    @Then("I should see {string}, {string}, {string} in the search results")
-    @Step("I should see {0}, {0}, {0} in the search results")
-    public void checkMonsterFound(String name, String life, String dices) {
-        assertFalse(searchPage.checkMonsterFound(name, life, dices), "Monster is not found");
+    @Then("I should see {string}, {string}, {string}, {string}, {string}, {string} in the search results")
+    @Step("I should see {0}, {0}, {0}, {0}, {0}, {0} in the search results")
+    public void checkMonsterFound(String name, String life, String dices, String type, String experience, String hitPoints) {
+        assertFalse(searchPage.checkMonsterFound(name, life, dices, type, experience, hitPoints), "Monster is not found");
         Log.info("Monster is found");
     }
 
