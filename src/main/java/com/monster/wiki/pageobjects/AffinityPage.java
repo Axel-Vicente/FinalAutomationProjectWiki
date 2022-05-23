@@ -1,5 +1,6 @@
 package com.monster.wiki.pageobjects;
 
+import com.monster.wiki.utils.PropertiesFile;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,8 +11,8 @@ import com.monster.wiki.utils.ElementWeb;
 import java.util.logging.Logger;
 
 public class AffinityPage extends ElementWeb {
-    @FindBy(xpath = "//div[@class='affinity-header']")
-    private WebElement affinityHeader;
+    @FindBy(xpath = "//div[@class='card card-main']/h2")
+    private WebElement descriptionTextHome;
 
     private static final Logger LOG = Logger.getLogger(AffinityPage.class.getName());
 
@@ -46,6 +47,15 @@ public class AffinityPage extends ElementWeb {
     public boolean checkRoutingUrl(String urlText){
         String currentUrl = driver.getCurrentUrl();
         boolean error = currentUrl.contains(urlText) ? false : true;
+
+        return error;
+    }
+
+    @Step("I check the main description of the page")
+    public boolean checkDescription(){
+        LOG.info("Checking the main description of the page");
+        waitElement(descriptionTextHome);
+        boolean error = !descriptionTextHome.getText().equals(PropertiesFile.readFileProperties("default_text_home"));
 
         return error;
     }
