@@ -4,11 +4,11 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-        features = "src/test/resources/features/searchEngine.feature"
+        features = "src/test/resources/features/home.feature"
         ,glue= {"classpath:com.monster.wiki.test.stepdef"},
         plugin = { "pretty", "summary"},
         monochrome = true
 )
-public class SearchEngineRunner extends AbstractTestNGCucumberTests {
+public class HomeRunner extends AbstractTestNGCucumberTests {
 
 }
