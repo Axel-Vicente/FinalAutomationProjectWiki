@@ -2,11 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Wiki with Allure TestNG Suite" verbose="5" thread-count="1" configfailurepolicy="continue">
     <listeners>
-        <listener class-name="com.monster.wiki.base.TestNgListener"></listener>
+        <listener class-name="com.monster.wiki.base.TestNgListener"/>
     </listeners>
     <test name="TestAll">
         <packages>
-            <package name="runners"/>
+            <package name="com.monster.wiki.test.runners"/>
         </packages>
     </test>
 </suite>

@@ -1,7 +1,7 @@
 package com.monster.wiki.test.runners;
 
+import com.monster.wiki.utils.AbstractTestNGCucumberParallelTest;
 import io.cucumber.testng.CucumberOptions;
-import io.cucumber.testng.AbstractTestNGCucumberTests;
 
 @CucumberOptions(
         features = "src/test/resources/features/routing.feature"
@@ -9,6 +9,6 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
         plugin = { "pretty", "summary"},
         monochrome = true
 )
-public class RoutingRunner extends AbstractTestNGCucumberTests {
+public class RoutingRunner extends AbstractTestNGCucumberParallelTest {
 
 }

@@ -1,6 +1,6 @@
 package com.monster.wiki.test.runners;
 
-import io.cucumber.testng.AbstractTestNGCucumberTests;
+import com.monster.wiki.utils.AbstractTestNGCucumberParallelTest;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
@@ -9,6 +9,6 @@ import io.cucumber.testng.CucumberOptions;
         plugin = { "pretty", "summary"},
         monochrome = true
 )
-public class HomeRunner extends AbstractTestNGCucumberTests {
+public class HomeRunner extends AbstractTestNGCucumberParallelTest {
 
 }
