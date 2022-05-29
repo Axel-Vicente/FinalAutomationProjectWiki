@@ -145,7 +145,7 @@
                             </propertiy>
                             <propertiy>
                                 <name>dataproviderthreadcount</name>
-                                <value>4</value>>
+                                <value>2</value>>
                             </propertiy>
                         </systemProperties>
                         <argLine>
