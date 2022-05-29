@@ -24,4 +24,11 @@ public class HomeStepDef extends ParentTestCase {
         Log.info("The description is correct");
     }
 
+    @Then("I check the icon {string}")
+    @Step("I check the icon {0}")
+    public void checkSvgIcon(String iconName) {
+        assertFalse(affinityPage.checkSvgIcon(iconName), "The icon is not correct");
+        Log.info("The icon is correct");
+    }
+
 }

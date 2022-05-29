@@ -59,4 +59,22 @@ public class AffinityPage extends ElementWeb {
 
         return error;
     }
+
+    @Step("I check the svg icons of the page")
+    public boolean checkSvgIcon(String iconName){
+        boolean error = false;
+        By icon = By.xpath("//*[local-name()='svg' and @data-icon='" + iconName + "']");
+
+        try {
+            LOG.info("Checking the svg icon of the page");
+            WebElement iconElement = driver.findElement(icon);
+            waitElement(iconElement);
+        } catch (Exception e) {
+            LOG.severe("The icon " + iconName + " is not found");
+            error = true;
+        }
+        LOG.info("The icon " + iconName + " is found");
+
+        return error;
+    }
 }
