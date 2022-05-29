@@ -1,6 +1,7 @@
 package com.monster.wiki.utils;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -74,6 +75,24 @@ public class ElementWeb {
                 informField = true;
             }catch (org.openqa.selenium.ElementNotInteractableException e){
                 LOG.severe("Exception in informField: " + e);
+                wait(2000);
+                time = time + 2;
+            }
+        }
+    }
+
+    public void clearField(WebElement element){
+        long time = 0;
+        boolean clearField = false;
+        while (!clearField && time < TIME_LIMIT){
+            try {
+                LOG.info("Trying to clear the element...");
+                waitElement(element);
+                element.sendKeys(Keys.CONTROL + "a" + Keys.DELETE);
+                LOG.info("cleared the element.");
+                clearField = true;
+            }catch (org.openqa.selenium.ElementNotInteractableException e){
+                LOG.severe("Exception in clearField: " + e);
                 wait(2000);
                 time = time + 2;
             }

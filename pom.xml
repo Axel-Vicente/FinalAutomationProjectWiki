@@ -21,6 +21,7 @@
         <lombok.version>1.18.24</lombok.version>
         <poi.version>5.0.0</poi.version>
         <jetbrains.version>20.1.0</jetbrains.version>
+        <webdrivermanager.version>5.0.3</webdrivermanager.version>
     </properties>
 
     <dependencies>
@@ -37,11 +38,6 @@
             <version>${selenium.version}</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-api -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-api</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -72,11 +68,6 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>${poi.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.codoid.products</groupId>
-            <artifactId>fillo</artifactId>
-            <version>1.18</version>
         </dependency>
         <dependency>
             <groupId>io.qameta.allure</groupId>
@@ -125,6 +116,11 @@
             <version>${lombok.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <pluginManagement>
@@ -146,6 +142,10 @@
                             <propertiy>
                                 <name>allure.results.directory</name>
                                 <value>target/allure-results</value>
+                            </propertiy>
+                            <propertiy>
+                                <name>dataproviderthreadcount</name>
+                                <value>2</value>>
                             </propertiy>
                         </systemProperties>
                         <argLine>

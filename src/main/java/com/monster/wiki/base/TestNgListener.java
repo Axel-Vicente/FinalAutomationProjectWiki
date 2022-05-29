@@ -5,9 +5,10 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
+import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class TestNgListener {
+public class TestNgListener implements ITestListener {
     public TestNgListener() {
     }
 
@@ -28,5 +29,40 @@ public class TestNgListener {
     @Attachment(value = "{0}", type = "text/html")
     public static String attachHtml(String html){
         return html;
+    }
+
+    @Override
+    public void onTestStart(ITestResult iTestResult) {
+        saveTextLog(getTestMethodName(iTestResult) + " test has started");
+    }
+
+    @Override
+    public void onTestSuccess(ITestResult iTestResult) {
+        saveTextLog(getTestMethodName(iTestResult) + " test has passed");
+    }
+
+    @Override
+    public void onTestFailure(ITestResult iTestResult) {
+        saveTextLog(getTestMethodName(iTestResult) + " test has failed");
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult iTestResult) {
+        saveTextLog(getTestMethodName(iTestResult) + " test has been skipped");
+    }
+
+    @Override
+    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+        saveTextLog(getTestMethodName(iTestResult) + " test has failed but within success percentage");
+    }
+
+    @Override
+    public void onStart(ITestContext iTestContext) {
+        saveTextLog(iTestContext.getName() + " test suite has started");
+    }
+
+    @Override
+    public void onFinish(ITestContext iTestContext) {
+        saveTextLog(iTestContext.getName() + " test suite has finished");
     }
 }
