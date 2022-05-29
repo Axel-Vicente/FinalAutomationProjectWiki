@@ -1,9 +1,11 @@
 # MONSTER WIKI TESTING - Automated Testing
-# Version: 1.0.0
+# Version: 1.0.1
 ## Table of Contents
 * [Introduction](#introduction)
 * [Execution](#execution)
 * [Structure](#structure)
+* [functionality](#functionality)
+* [Test Cases](#test-cases)
 ***
 This project deals with the automation of regression testing of Monster Wiki.
 ***
@@ -11,7 +13,11 @@ This project deals with the automation of regression testing of Monster Wiki.
 ## 📖What is regression testing? 
 
 Regression testing helps to confirm that a recent configuration update or new deployment won’t adversely affect existing functionality, processes, and workflows of a system before it’s released.
-![ImgRegressionTest](https://i.imgur.com/eIw1Ag7.png)
+<br />
+<p align="center">
+  <img src="https://i.imgur.com/eIw1Ag7.png">
+</p>
+
 ***
 <a id="execution" name="execution"></a>
 ## ⚡Execution of the application/component
@@ -27,7 +33,7 @@ Open the terminal and go to the root of project. These are the different ways to
   ```$ mvn clean antrun:run@envtask test -Dtest=package/nameTest -Denv=environment```
 - Launching the test with a specific environment and a specific test: <br />
   ```$ mvn clean antrun:run@envtask test -Dtest=package/nameTest -Denv=environment```
-- Launching the test with a specific environment and a specific test and a specific browser: <br />
+- Launching the test with a specific environment, specific test and a specific browser: <br />
   ```$ mvn clean antrun:run@envtask test -Dtest=package/nameTest -Denv=environment -Dbrowser=browser```
 - Launching the test without opening a browser: <br />
   ```$ mvn clean antrun:run@envtask test -Dtest=package/nameTest -Dheadless```
@@ -40,7 +46,7 @@ These are the different ways to launch a test with testng:
 
 - Basis for launching the testng.xml: <br />
   ```$ mvn clean antrun:run@envtask test -DsuiteXmlFile=testng.xml```
-- Launching the test with a specific environment and a specific test and a specific browser: <br />
+- Launching the test with a specific environment, specific test and a specific browser: <br />
   ```$ mvn clean antrun:run@envtask test -DsuiteXmlFile=testng.xml -Dbrowser=browser```
 - Launching the test without opening a browser: <br />
   ```$ mvn clean antrun:run@envtask test -DsuiteXmlFile=testng.xml -Dheadless```
@@ -59,6 +65,7 @@ These are the different ways to launch a test with testng:
 - [`utils`](src/main/java/com/monster/wiki/utils) **_package:_** `com.monster.wiki.utils` Contains the methods for the various automations in the application.
 
 ***
+<a id="functionality" name="functionality"></a>
 ## ⚙️New functionalities
 
 `# 2022-04-13 #`
@@ -67,8 +74,9 @@ These are the different ways to launch a test with testng:
 - `✔️README.md file`
 
 ***
+<a id="test-cases" name="test-cases"></a>
 ## 🟢Tests
-###List of tests by feature:
+### List of tests by feature:
 
 [`# Routing #`](src/test/resources/features/routing.feature)
 ---
@@ -77,3 +85,8 @@ These are the different ways to launch a test with testng:
 [`# SearchEngine #`](src/test/resources/features/searchEngine.feature)
 ---
 - `FTN002_v1.0.0`
+- `FTN003_v1.0.1`
+
+[`# HomePage #`](src/test/resources/features/home.feature)
+---
+- `FTN004_v1.0.1`
