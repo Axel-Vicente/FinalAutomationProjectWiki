@@ -1,2 +1,33 @@
-# Project exclude paths
+### General ###
 /target/
+allure-results/
+allure-report/
+bin/
+test-output/
+screenshots/
+
+### STS ###
+.apt_generated
+.classpath
+.project
+.settings
+.factorypath
+.springBeans
+.sts4-cache
+
+### Intellij  IDEA ###
+.idea
+*.iml
+*.ipr
+*.iws
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+### VS Code ###
+.vscode
