@@ -1,5 +1,4 @@
-# MONSTER WIKI TESTING - Automated Testing
-# Version: 1.0.1
+# MONSTER WIKI TESTING - Automated Testing ![Version](https://img.shields.io/badge/Version-1.0.1-gray?style=plastic&logo=DataVersionControl&logoColor=black&labelColor=success)
 ## Table of Contents
 * [Introduction](#introduction)
 * [Execution](#execution)
