@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 @Augmentable
@@ -52,6 +53,17 @@ public class Screenshots {
             LOG.severe("Error taking screenshot: " + e.getMessage());
         }
         return allbytes;
+    }
+
+    public static String getLastScreenshot(String extId) {
+        File folder = new File(getScreenshotPath(extId));
+        File[] listOfFiles = folder.listFiles();
+        if (listOfFiles != null && listOfFiles.length > 1) {
+            Arrays.sort(listOfFiles, (File f1, File f2) ->  Long.valueOf(f1.lastModified()).compareTo(f2.lastModified()));
+        }
+
+        assert listOfFiles != null;
+        return getScreenshotPath(extId) + listOfFiles[listOfFiles.length - 1].getName();
     }
 
     public static String getScenarioExtId(String name) {

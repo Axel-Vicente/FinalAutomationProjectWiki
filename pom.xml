@@ -6,7 +6,7 @@
 
     <groupId>org.JorgeAxel</groupId>
     <artifactId>FinalAutomationProject</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1</version>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
