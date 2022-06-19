@@ -31,4 +31,11 @@ public class HomeStepDef extends ParentTestCase {
         Log.info("The icon is correct");
     }
 
+    @Then("I check the footer of the page")
+    @Step("I check the footer of the page")
+    public void checkFooter() {
+        assertFalse(affinityPage.checkFooter(), "The icon is not correct");
+        Log.info("The icon is correct");
+    }
+
 }

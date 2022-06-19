@@ -21,3 +21,9 @@ Feature: Home
       | magnifying-glass |
       | pencil           |
       | user             |
+
+  Scenario: FTN006_CheckFooter
+#   Given access the wiki and login
+    Given I am on the home page
+    When I click on "Inicio" in the header
+    Then I check the footer of the page

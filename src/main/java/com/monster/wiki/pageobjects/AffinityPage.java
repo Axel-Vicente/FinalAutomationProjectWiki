@@ -8,11 +8,16 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import com.monster.wiki.utils.ElementWeb;
 
+import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public class AffinityPage extends ElementWeb {
     @FindBy(xpath = "//div[@class='card card-main']/h2")
     private WebElement descriptionTextHome;
+    @FindBy(xpath = "//div[@id='footer']/descendant::span")
+    private WebElement spanTextFooter;
+    @FindBy(xpath = "//div[@id='footer']/descendant::a[text()='D&D 5e API']")
+    private WebElement linkApiFooter;
 
     private static final Logger LOG = Logger.getLogger(AffinityPage.class.getName());
 
@@ -56,6 +61,36 @@ public class AffinityPage extends ElementWeb {
         LOG.info("Checking the main description of the page");
         waitElement(descriptionTextHome);
         boolean error = !descriptionTextHome.getText().equals(PropertiesFile.readFileProperties("default_text_home"));
+        if (!error){
+            LOG.info("The description is correct");
+        }
+
+        return error;
+    }
+
+    @Step("I check the footer of the page")
+    public boolean checkFooter(){
+
+        LOG.info("Checking the footer of the page");
+        waitElement(spanTextFooter);
+        boolean errorFooter = !spanTextFooter.getText().equals(PropertiesFile.readFileProperties("default_text_footer"));
+        if (!errorFooter){
+            LOG.info("The footer text is correct");
+        }
+
+        waitElement(linkApiFooter);
+        clickOnWebElement(linkApiFooter);
+        ArrayList<String> tabs = new ArrayList<String> (driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+
+        boolean errorApiUrl = !driver.getCurrentUrl().equals(PropertiesFile.readFileProperties("url_api_dnd"));
+        if (!errorApiUrl){
+            LOG.info("The footer link is correct");
+        }
+
+        driver.close();
+        driver.switchTo().window(tabs.get(0));
+        boolean error = !errorFooter && !errorApiUrl ? false : true;
 
         return error;
     }
