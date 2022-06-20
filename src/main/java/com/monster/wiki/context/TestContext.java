@@ -16,7 +16,6 @@ public class TestContext {
 
     private Logger Log;
     private WebDriver driver;
-    private String user, password;
     private ExcelUtils dataSheet;
     private AffinityPage affinityPage;
     private PropertiesFile propertiesFile;
@@ -25,8 +24,6 @@ public class TestContext {
         propertiesFile = new PropertiesFile();
         DriverWeb driverWeb = new DriverWeb();
         driver = driverWeb.inicialization(propertiesFile);
-        user = propertiesFile.readFileProperties("user");
-        password = propertiesFile.readFileProperties("password");
         Log = Logger.getLogger(TestContext.class.getName());
     }
 }

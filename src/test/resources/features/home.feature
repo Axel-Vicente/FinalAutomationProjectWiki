@@ -3,15 +3,17 @@
 Feature: Home
 
   Scenario: FTN004_CheckDescriptionHome
-#    Given access the wiki and login
     Given I am on the home page
-    When I click on "Inicio" in the header
+    When I click on "Login" in the header
+    And access the wiki and login with user "usuarioPrueba"
+    And I click on "Inicio" in the header
     Then I check the main description of the page
 
   Scenario Outline: FTN005_CheckHeaderIcons
-#    Given access the wiki and login
     Given I am on the home page
-    When I click on "Inicio" in the header
+    When I click on "Login" in the header
+    And access the wiki and login with user "usuarioPrueba"
+    And I click on "Inicio" in the header
     Then I check the icon "<icon>"
 
     Examples:
@@ -23,7 +25,8 @@ Feature: Home
       | user             |
 
   Scenario: FTN006_CheckFooter
-#   Given access the wiki and login
     Given I am on the home page
+    When I click on "Login" in the header
+    And access the wiki and login with user "usuarioPrueba"
     When I click on "Inicio" in the header
     Then I check the footer of the page

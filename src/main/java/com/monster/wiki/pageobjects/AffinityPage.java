@@ -1,5 +1,6 @@
 package com.monster.wiki.pageobjects;
 
+import com.monster.wiki.utils.ExcelUtils;
 import com.monster.wiki.utils.PropertiesFile;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
@@ -12,17 +13,37 @@ import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public class AffinityPage extends ElementWeb {
-    @FindBy(xpath = "//div[@class='card card-main']/h2")
+    @FindBy(xpath = "//div[@class='card card-main']/h1[@class='title']")
     private WebElement descriptionTextHome;
     @FindBy(xpath = "//div[@id='footer']/descendant::span")
     private WebElement spanTextFooter;
     @FindBy(xpath = "//div[@id='footer']/descendant::a[text()='D&D 5e API']")
     private WebElement linkApiFooter;
+    @FindBy(xpath = "//button[contains(text(), 'Iniciar sesi')]")
+    private WebElement buttonStartSession;
+    @FindBy(xpath = "//input[@placeholder='usuario']")
+    private WebElement inputUserName;
+    @FindBy(xpath = "//input[@type='password']")
+    private WebElement inputPassword;
 
     private static final Logger LOG = Logger.getLogger(AffinityPage.class.getName());
 
     public AffinityPage(WebDriver driver) {
         super(driver);
+    }
+
+    @Step("access the wiki and login")
+    public boolean accessTheWikiAndLogin(String user) {
+        ExcelUtils userPassword = new ExcelUtils( "dataUserArchive.xlsx", encodeTobase64(user) + "_user");
+        boolean error = false;
+
+        LOG.info("access the wiki and login");
+        waitElement(inputUserName);
+        informField(inputUserName, user);
+        informField(inputPassword, decodeTobase64(userPassword.getWorkflowData().get("password").toString()));
+        clickOnWebElement(buttonStartSession);
+        LOG.info("session started with user: " + user);
+        return error;
     }
 
     @Step("Check if user is on index page")
@@ -36,8 +57,15 @@ public class AffinityPage extends ElementWeb {
     @Step("Check click on element of header")
     public boolean clickOnHeaderElement(String element){
         boolean error = false;
-        By headerText = By.xpath("//div[@id='header']/descendant::a[text()='" + element + "']");
-        WebElement headerElement = driver.findElement(headerText);
+        By headerText;
+        WebElement headerElement;
+
+        if (element.equals("Inicio") || element.equals("Busqueda")){
+            headerText = By.xpath("//div[@id='header']/descendant::a[text()='" + element + "']");
+        }else {
+            headerText = By.xpath("//div[@id='header']/descendant::div[text()='" + element + "']");
+        }
+        headerElement = driver.findElement(headerText);
 
         try{
             waitElement(headerElement);
