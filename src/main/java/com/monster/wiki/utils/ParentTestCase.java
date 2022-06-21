@@ -10,15 +10,12 @@ public class ParentTestCase {
     protected Logger Log;
     protected WebDriver driver;
     protected ExcelUtils dataSheet;
-    protected String user, password;
     protected TestContext context;
     protected AffinityPage affinityPage;
 
     public ParentTestCase(TestContext context) {
         this.context = context;
         driver = context.getDriver();
-        user = context.getUser();
-        password = context.getPassword();
         Log = context.getLog();
         affinityPage = context.getAffinityPage();
         dataSheet = context.getDataSheet();

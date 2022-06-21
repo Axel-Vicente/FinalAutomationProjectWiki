@@ -1,5 +1,7 @@
 package com.monster.wiki.utils;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -16,6 +18,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Logger;
 
+@Getter
+@Setter
 public class ExcelUtils {
     private String filePath;
     private int dataPosition;
@@ -106,15 +110,5 @@ public class ExcelUtils {
             }
         }
         return finalPosition;
-    }
-
-    public static String encodeTobase64(String text) {
-        String encoded = Base64.encodeBase64String(text.getBytes());
-        return encoded;
-    }
-
-    public static String decodeTobase64(String text) {
-        String decoded = new String(Base64.decodeBase64(text));
-        return decoded;
     }
 }
