@@ -3,6 +3,8 @@ package com.monster.wiki.pageobjects;
 import com.monster.wiki.utils.ExcelUtils;
 import com.monster.wiki.utils.PropertiesFile;
 import io.qameta.allure.Step;
+import lombok.Getter;
+import lombok.Setter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +14,8 @@ import com.monster.wiki.utils.ElementWeb;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
+@Getter
+@Setter
 public class AffinityPage extends ElementWeb {
     @FindBy(xpath = "//div[@class='card card-main']/h1[@class='title']")
     private WebElement descriptionTextHome;
@@ -27,6 +31,7 @@ public class AffinityPage extends ElementWeb {
     private WebElement inputPassword;
 
     private static final Logger LOG = Logger.getLogger(AffinityPage.class.getName());
+    private String userName;
 
     public AffinityPage(WebDriver driver) {
         super(driver);
@@ -36,6 +41,7 @@ public class AffinityPage extends ElementWeb {
     public boolean accessTheWikiAndLogin(String user) {
         ExcelUtils userPassword = new ExcelUtils( "dataUserArchive.xlsx", encodeTobase64(user) + "_user");
         boolean error = false;
+        userName = user;
 
         LOG.info("access the wiki and login");
         waitElement(inputUserName);
@@ -60,7 +66,7 @@ public class AffinityPage extends ElementWeb {
         By headerText;
         WebElement headerElement;
 
-        if (element.equals("Inicio") || element.equals("Busqueda")){
+        if (element.equals("Inicio") || element.equals("Busqueda") || element.equals("Contactanos")){
             headerText = By.xpath("//div[@id='header']/descendant::a[text()='" + element + "']");
         }else {
             headerText = By.xpath("//div[@id='header']/descendant::div[text()='" + element + "']");

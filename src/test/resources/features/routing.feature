@@ -10,7 +10,7 @@ Feature: Routing
     Then I check that I'm in "<url>"
 
     Examples:
-      | nameHeader | url    |
-      | Inicio     | home   |
-      | Busqueda   | search |
-      | Editar     | edit   |
+      | nameHeader  | url     |
+      | Inicio      | home    |
+      | Busqueda    | search  |
+      | Contactanos | contact |
