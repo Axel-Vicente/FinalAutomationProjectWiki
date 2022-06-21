@@ -18,3 +18,8 @@ Feature: Login
     When I click on "Login" in the header
     And access the wiki and login with user "usuarioCapibara"
     Then I check the admin user
+
+    Scenario: FTN011_CheckAlertUserNotLogged
+      Given I am on the home page
+      When I click on "Inicio" in the header
+      Then I should see the alert message "Inicia sesión para continuar"

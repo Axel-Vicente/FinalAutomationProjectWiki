@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 @Getter
 @Setter
 public class AffinityPage extends ElementWeb {
-    @FindBy(xpath = "//div[@class='card card-main']/h1[@class='title']")
+    @FindBy(xpath = "//div[@class='card card-section d-flex flex-align-center info-home']/h1[@class='title']")
     private WebElement descriptionTextHome;
     @FindBy(xpath = "//div[@id='footer']/descendant::span")
     private WebElement spanTextFooter;
@@ -66,7 +66,7 @@ public class AffinityPage extends ElementWeb {
         By headerText;
         WebElement headerElement;
 
-        if (element.equals("Inicio") || element.equals("Busqueda") || element.equals("Contactanos")){
+        if (element.equals("Inicio") || element.equals("Busqueda") || element.equals("Contactanos") || element.equals("Incidencias")){
             headerText = By.xpath("//div[@id='header']/descendant::a[text()='" + element + "']");
         }else {
             headerText = By.xpath("//div[@id='header']/descendant::div[text()='" + element + "']");
@@ -94,7 +94,7 @@ public class AffinityPage extends ElementWeb {
     public boolean checkDescription(){
         LOG.info("Checking the main description of the page");
         waitElement(descriptionTextHome);
-        boolean error = !descriptionTextHome.getText().equals(PropertiesFile.readFileProperties("default_text_home"));
+        boolean error = !descriptionTextHome.getText().equals((PropertiesFile.readFileProperties("default_text_home") + "!"));
         if (!error){
             LOG.info("The description is correct");
         }

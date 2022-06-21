@@ -43,4 +43,11 @@ public class LoginStepDef extends ParentTestCase {
         Log.info("The user " + affinityPage.getUserName() + " is admin");
     }
 
+    @Then("I should see the alert message {string}")
+    @Step("I should see the alert message {string}")
+    public void checkAlertMessage(String message) {
+        assertFalse(loginPage.checkAlertMessage(message), "The alert message is not correct");
+        Log.info("The alert message is correct");
+    }
+
 }
